@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{d69b0dd4-b128-4430-ac82-dc84deb3fa95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stitching">
+      <UniqueIdentifier>{a6451181-9826-4b0c-a3b8-a9ccccc335bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Feature">
+      <UniqueIdentifier>{d7d2ff46-8b07-4e00-80b0-075b1644ea4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Debugger">
+      <UniqueIdentifier>{28a45254-6864-4efb-97ec-2305507d0b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mesh">
+      <UniqueIdentifier>{aad6b533-8d3f-4afc-8e07-7f6c419bedf8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Configure.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Feature\FeatureController.h">
+      <Filter>Source Files\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="Feature\ImageData.h">
+      <Filter>Source Files\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="Feature\MultiImages.h">
+      <Filter>Source Files\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="Debugger\ColorMap.h">
+      <Filter>Source Files\Debugger</Filter>
+    </ClInclude>
+    <ClInclude Include="Debugger\ErrorController.h">
+      <Filter>Source Files\Debugger</Filter>
+    </ClInclude>
+    <ClInclude Include="Debugger\ImageDebugger.h">
+      <Filter>Source Files\Debugger</Filter>
+    </ClInclude>
+    <ClInclude Include="Debugger\TimeCalculator.h">
+      <Filter>Source Files\Debugger</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh\Mesh2D.h">
+      <Filter>Source Files\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh\MeshGrid.h">
+      <Filter>Source Files\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh\MeshOptimization.h">
+      <Filter>Source Files\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Stitching\APAP_Stitching.h">
+      <Filter>Source Files\Stitching</Filter>
+    </ClInclude>
+    <ClInclude Include="Stitching\NISwGSP_Stitching.h">
+      <Filter>Source Files\Stitching</Filter>
+    </ClInclude>
+    <ClInclude Include="Stitching\Parameter.h">
+      <Filter>Source Files\Stitching</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Blending.h">
+      <Filter>Source Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\InputParser.h">
+      <Filter>Source Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Statistics.h">
+      <Filter>Source Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Transform.h">
+      <Filter>Source Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Feature\FeatureController.cpp">
+      <Filter>Source Files\Feature</Filter>
+    </ClCompile>
+    <ClCompile Include="Feature\ImageData.cpp">
+      <Filter>Source Files\Feature</Filter>
+    </ClCompile>
+    <ClCompile Include="Feature\MultiImages.cpp">
+      <Filter>Source Files\Feature</Filter>
+    </ClCompile>
+    <ClCompile Include="Debugger\ColorMap.cpp">
+      <Filter>Source Files\Debugger</Filter>
+    </ClCompile>
+    <ClCompile Include="Debugger\ErrorController.cpp">
+      <Filter>Source Files\Debugger</Filter>
+    </ClCompile>
+    <ClCompile Include="Debugger\ImageDebugger.cpp">
+      <Filter>Source Files\Debugger</Filter>
+    </ClCompile>
+    <ClCompile Include="Debugger\TimeCalculator.cpp">
+      <Filter>Source Files\Debugger</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh\Mesh2D.cpp">
+      <Filter>Source Files\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh\MeshGrid.cpp">
+      <Filter>Source Files\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh\MeshOptimization.cpp">
+      <Filter>Source Files\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Stitching\APAP_Stitching.cpp">
+      <Filter>Source Files\Stitching</Filter>
+    </ClCompile>
+    <ClCompile Include="Stitching\NISwGSP_Stitching.cpp">
+      <Filter>Source Files\Stitching</Filter>
+    </ClCompile>
+    <ClCompile Include="Stitching\Parameter.cpp">
+      <Filter>Source Files\Stitching</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Blending.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\InputParser.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Statistics.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Transform.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
