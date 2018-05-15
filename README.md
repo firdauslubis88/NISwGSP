@@ -1,75 +1,40 @@
 # NISwGSP
 C++ implementation of the ECCV 2016 paper, Natural Image Stitching with the Global Similarity Prior (Windows Visual Studio 15.7 Version)
 
-# Natural Image Stitching with the Global Similarity Prior
+### Attention please!!
+1. This project is not mine, I solely just port it to the Visual Studio 15.7. So, if you use any code or data from this project, please cite the original author work:
+```
+@INPROCEEDINGS{Chen:2016:NIS,
+	AUTHOR		= {Yu-Sheng Chen and Yung-Yu Chuang},
+	TITLE		= {Natural Image Stitching with the Global Similarity Prior}, 
+	YEAR		= {2016},
+	MONTH		= {October},
+	BOOKTITLE	= {Proceedings of European Conference on Computer Vision (ECCV 2016)},
+	PAGES		= {V186--201},
+	LOCATION	= {Amsterdam},
+}
+```
+2. Therefore, if you have any questions regarding the content (algorithm or data) or there is some feature in the project that is not clear (how to run your own image for example), please refer to the original author github at https://github.com/nothinglo/NISwGSP :D
+3. However, if you have any problems with the porting to Visual Studio, feel free create issues here. I actually have not tried to test this git outside my working PC so it is possible the steps I write here miss several details.
+4. I do not fork the original author git directly. I cloned it (anyway, I actually cloned the ubuntu version at https://github.com/Yannnnnnnnnnnn/NISwGSP), then ported it in my pc, then init the github repository, then upload my local work to the github.
 
-Ubuntu:
-[![Build Status](https://www.travis-ci.org/Yannnnnnnnnnnn/NISwGSP.svg?branch=master)](https://www.travis-ci.org/Yannnnnnnnnnnn/NISwGSP)
+### How to set it up
+*You need to have opencv (the original author used 3.0 version but I used the 3.4 version) and dirent for windows. My opencv is built with cuda and many local dependencies so I think it will probably not working in your PC even though if I share the binary files here. As for dirent, I think (I actually already forgot how I got it) you can clone it from https://github.com/tronkko/dirent
+*I upload the VLfeat 0.9.20 (similar version as used by the original author) and eigen (sorry, I forgot the detail version, but I think it is 3.3. A different version from the one used by the original author (3.2.7)) in this git. So, you should not need to install it by your own. Please note that in the following steps I will assume that you (actually, you must) use/locate the VLfeat and eigen folder inside the NISwGSP project folder. This is because the cpp and h files refer the VLfeat and eigen library locally.
+*So, the installation steps are:
+1. clone this git.
+2. Prepare your opencv and dirent folder in your PC.
+3. Open the NISwGSP.sln using Visual Studio (I use 15.7 version, I do not know whether it will work with other 15 version (it should though) or even with 2015 or 2013 (I think it also should work))
+4. In your Visual Studio, make sure that you choose Release x64 as configuration and platform respectively. This is the mode I am working. I am not sure whether it will work with other configuration or platform or not. You can try it yourself
+5. Then, right click the NISwGSP project and choose "properties" menu to open the project properties window
+6. In the project properties window, go to "C/C++" -> "General" -> "additional include directories". You can see 3 entries there. Those are the location of: include folder of opencv, the NISwGSP.vcxproj, and include folder of dirent respectively. Please modify it as necessary depends on your opencv, project, and dirent folder location in your PC
+7. Still in project properties window, go to "Linker" -> "Input" -> "additional dependencies". You can see 2 entries there: opencv 3.4 lib and VLfeat lib file path respectively. As step 5, modify it as necessary. Please do not confuse about opencv_340.lib. If you download from the opencv site or you build the opencv_world by yourself, then you can have that file. However, if you only have separate opencv_*.lib files, that will also work. I am not sure in detail which module is being used by NISwGSP project though. Put all your opencv_*.lib to the "additional dependencies" will not hurt though :D. And also note that eigen and dirent is header only library so they don't have the corresponding .lib or .dll. It means you don't need to worry about them in this step
+8. Still in your project properties, go to "General" -> "Output Directory". That defines the location of your executable file. After you know the specific location, open the location in your windows explorer. Copy all your opencv_*.dll files and vl.dll and msvcr100.dll to that location (basically, the resulting project .exe file should locate in the same directory as opencv_*.dll, vl.dll, and msvcr100.dll files). You can get the vl.dll and msvcr100.dll from the NISwGSP\vlfeat-0.9.20\bin\win64 folder of your clone location. Note that win64 is for the 64 bit. So, if you try to use the 32 bit version, may be you should copy the corresponding file located in win32.
+9. Build your project. Just press "CTRL + Shift + B" or right click again to the project and choose "Build" menu. Let's hope you will not get any error. For the next step, I assume that you succeed to build it.
+10. Before you test the resulting .exe file, you need to download the sample image test [Input-42-data] from http://www.cmlab.csie.ntu.edu.tw/project/stitching-wGSP/input-42-data.zip. Extract the image test zip file. Then, copy the "input-42-data" folder in the same location as the executable files (it means, your project build .exe, opencv_*.dll, vl.dll, msvcr100.dll files and "input-42-data" folder are now in same location). Please note that the "input-42-data" folder must be the direct parent of the list of folder testing image (e.g., "AANAP-building", "AANAP-roundabout", "AANAP-skyline", etc folder).
+11. Open the exe file location in your preferred terminal. I usually use command window. Run, for example "NISwGSP.exe AANAP-building" and enjoy the result!! :D. To test another folder, just change the argument to the .exe file e.g. "NISwGSP.exe AANAP-roundabout", "NISwGSP.exe AANAP-skyline", etc.
+12. HAPPY CODING and CHEERS!!! :D
 
-### [[Project page]](http://www.cmlab.csie.ntu.edu.tw/project/stitching-wGSP/) [[Paper]](http://www.cmlab.csie.ntu.edu.tw/project/stitching-wGSP/ECCV-2016-NISwGSP.pdf) [[Supplementary]](http://www.cmlab.csie.ntu.edu.tw/project/stitching-wGSP/ECCV-2016-NISwGSP-supplementary-material.pdf)
-
-
-This repository is our C++ implementation of the **ECCV 2016** paper, **Natural Image Stitching with the Global Similarity Prior**. If you use any code or data from our work, please cite our paper.
-
-### Download
-1. [Poster](http://www.cmlab.csie.ntu.edu.tw/project/stitching-wGSP/Poster.pdf), [Short Presentation](http://www.cmlab.csie.ntu.edu.tw/project/stitching-wGSP/Short-Presentation.pdf) and [Thesis Presentation](http://www.cmlab.csie.ntu.edu.tw/project/stitching-wGSP/Thesis-Presentation.pdf)
-2. [Paper](http://www.cmlab.csie.ntu.edu.tw/project/stitching-wGSP/ECCV-2016-NISwGSP.pdf)
-3. [Supplementary](http://www.cmlab.csie.ntu.edu.tw/project/stitching-wGSP/ECCV-2016-NISwGSP-supplementary-material.pdf)
-	* We tested four state-of-the-art methods and ours on 42 sets of images in same setting (grid size, feature points and parameters).
-4. [Input-42-data](http://www.cmlab.csie.ntu.edu.tw/project/stitching-wGSP/input-42-data.zip)
-5. [All our results](http://www.cmlab.csie.ntu.edu.tw/project/stitching-wGSP/0_results.zip)
-
-### Building
-1. cd to the ./vlfeat-0.9.20 and build the vlfeat; in ubuntu, "make" is enough for this task
-2. use the CMake to configure the project and make sure set the VLFEAT_LIBRARY with the "./vlfeat-0.9.20/bin/***(the name depend on you system)/libvl"
-3. mkdir build 
-4. cd build && cmake .. && make 
-5. BE AWARE THE DEAFULT BUILD-TYPE IS "debug"
-
-### Usage
-1. Download code and compile.
-	* You need **Eigen**, **VLFeat**, **OpenCV 3.0.0** and [**OpenMP**](https://github.com/nothinglo/NISwGSP/issues/8) (if you don't need to use omp.h, you can ignore it.)
-	* My GCC_VRSION is Apple LLVM 6.0
-	```
-	GCC_C_LANGUAGE_STANDARD = GNU99 [-std=gnu99]
-	CLANG_CXX_LANGUAGE_STANDARD = GNU++14 [-std=gnu++14]
-	CLANG_CXX_LIBRARY = libc++ (LLVM C++ standard library with C++11 support)
-	```
-	* My Eigen version is 3.2.7 (development branch). You need to make sure you can use "LeastSquaresConjugateGradient" class.
-	
-2. Download [input-42-data](http://www.cmlab.csie.ntu.edu.tw/project/stitching-wGSP/input-42-data.zip). 
-	* 42 sets of images: 6 from [1], 3 from [2], 3 from [3], 7 from [4], 4 from [5] and 19 collected by ourselves.
-	
-3. Move **[input-42-data]** folder to your working directory(the working directory is where the executable file is).
-![workding](https://github.com/Yannnnnnnnnnnn/NISwGSP/blob/master/UglyMan_NISwGSP_Stitching/UglyMan_NISwGSP_Stitching/Screenshot%20from%202017-12-27%2022-27-39.bmp)
-4. Run the command:
-
-	```
-	./exe folder_name_in_[input-42-data]_folder
-	```
-  example:
-  
-  	```
-	./NISwGSP AANAP-building
-	```
-	
-The results can be found in **[0_results]** folder under **[input-42-data]** folder.
-
-
-
-
-![exe](https://github.com/Yannnnnnnnnnnn/NISwGSP/blob/master/UglyMan_NISwGSP_Stitching/UglyMan_NISwGSP_Stitching/Screenshot%20from%202017-12-27%2022-28-08.bmp)
-
-
-5. Optional:
-	* You can control the parameters in **Configure.h** or **xxx-STITCH-GRAPH.txt**
-
-### Results
-For More Results please look to https://github.com/nothinglo/NISwGSP
-
-### Speed
-
-If you want to speed up, **MATLAB** solver is significantly faster than **Eigen**.
 
 ### Publication
 [Yu-Sheng Chen](http://www.cmlab.csie.ntu.edu.tw/~nothinglo/) and [Yung-Yu Chuang](http://www.csie.ntu.edu.tw/~cyy/).
@@ -99,5 +64,5 @@ Proceedings of European Conference on Computer Vision 2016 (ECCV 2016), Part V, 
 > 4. *Nomura, Y., Zhang, L., Nayar, S.K.: Scene collages and flexible camera arrays. In: Proceedings of the 18th Eurographics Conference on Rendering Techniques. pp. 127-138. EGSR'07 (2007)*
 > 5. *Zaragoza, J., Chin, T.J., Brown, M.S., Suter, D.: As-projective-as-possible image stitching with moving dlt. In: Proceedings of the 2013 IEEE Conference on Computer Vision and Pattern Recognition. pp. 2339-2346. CVPR'13 (2013)*
 
-### Contact
-Feel free to contact me if there is any question (Yu-Sheng Chen nothinglo@cmlab.csie.ntu.edu.tw).
+### Original Author Contact
+Feel free to contact the original author if there is any question (Yu-Sheng Chen nothinglo@cmlab.csie.ntu.edu.tw).
