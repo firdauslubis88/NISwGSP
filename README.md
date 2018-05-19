@@ -35,6 +35,8 @@ C++ implementation of the ECCV 2016 paper, Natural Image Stitching with the Glob
 11. Open the exe file location in your preferred terminal. I usually use command window. Run, for example "NISwGSP.exe AANAP-building" and enjoy the result!! :D. To test another folder, just change the argument to the .exe file e.g. "NISwGSP.exe AANAP-roundabout", "NISwGSP.exe AANAP-skyline", etc.
 12. HAPPY CODING and CHEERS!!! :D
 
+### ERROR: This application failed to start because VCOMP100.dll wast not found. Re-installing the program may fix the this problem.
+This happens when your PC/laptop does not have Microsoft Visual C++ 2010 Service Pack 1 Reditributable Package MFC Security Update (https://www.lifewire.com/how-to-fix-vcomp100-dll-not-found-or-missing-errors-2624174). To solve this problem, please install the corresponding file https://www.microsoft.com/en-us/download/confirmation.aspx?id=26999
 
 ### Publication
 [Yu-Sheng Chen](http://www.cmlab.csie.ntu.edu.tw/~nothinglo/) and [Yung-Yu Chuang](http://www.csie.ntu.edu.tw/~cyy/).
