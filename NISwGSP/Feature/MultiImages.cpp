@@ -899,9 +899,9 @@ vector<pair<int, int> > MultiImages::getInitialFeaturePairs(const pair<int, int>
                 }
             }
             set<FeatureDistance>::const_iterator it = feature_distance_set.begin();
-            if(ratio_test) {
+            if(ratio_test && it != feature_distance_set.end()) {
                 const set<FeatureDistance>::const_iterator it2 = std::next(it, 1);
-                if(nearest_k == nearest_size &&
+                if(it2 != feature_distance_set.end() && nearest_k == nearest_size &&
                    it2->distance * FEATURE_RATIO_TEST_THRESHOLD > it->distance) {
                     continue;
                 }
